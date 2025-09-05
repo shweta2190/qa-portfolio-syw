@@ -4,6 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -11,7 +12,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import base.BaseTest;
-
+import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -42,22 +43,23 @@ public class ExtentReportListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        test.get().fail(result.getThrowable());
+        //test.get().fail(result.getThrowable());
 
         Object currentClass = result.getInstance();
-        WebDriver driver = ((BaseTest) currentClass).driver;
+        WebDriver driver = ((BaseTest) currentClass).getDriver();
 
         // Save screenshot
-        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        String screenshotPath = "target/screenshots/" + result.getMethod().getMethodName() + ".png";
-
+        //File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String screenshotPath = "target/screenshots/" + result.getName() + ".png";
         try {
             new File("target/screenshots/").mkdirs(); // ensure folder exists
-            Files.copy(screenshot.toPath(), Paths.get(screenshotPath));
-
+            //Files.copy(screenshot.toPath(), Paths.get(screenshotPath));
+            File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File dest = new File(screenshotPath);
+        FileUtils.copyFile(src, dest);
             // Attach screenshot to report
-            test.get().addScreenCaptureFromPath(screenshotPath);
-
+            test.get().fail("Test Failed: " + result.getThrowable(),
+               MediaEntityBuilder.createScreenCaptureFromPath(new File(screenshotPath).getAbsolutePath()).build());
         } catch (IOException e) {
             e.printStackTrace();
         }

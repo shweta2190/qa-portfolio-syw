@@ -9,6 +9,10 @@ import org.testng.annotations.AfterClass;
 public class BaseTest {
     public WebDriver driver;
 
+    public WebDriver getDriver() {
+    return driver;
+}
+
     @BeforeClass
     public void setUp(ITestContext context) {
         driver = new ChromeDriver();

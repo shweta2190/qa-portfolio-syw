@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
+                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -117,7 +117,12 @@
                     <div class="method-list-content passed suite-QA_Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-QA_Suite" title="tests.SampleTest" class="method navigator-link" hash-for-method="openGoogle">openGoogle</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-QA_Suite" title="tests.SampleTest" class="method navigator-link" hash-for-method="loginToOrangeHRM">loginToOrangeHRM</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-QA_Suite" title="tests.SampleTest" class="method navigator-link" hash-for-method="openExampleDotCom">openExampleDotCom</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-QA_Suite -->
@@ -144,7 +149,7 @@
                   </a> <!-- failingTest -->
                   <span class="method-name">failingTest</span>
                   <div class="stack-trace">java.lang.AssertionError: Title should contain &apos;Yahoo&apos; expected [true] but found [false]
-	at tests.SampleTest.failingTest(SampleTest.java:21)
+	at tests.SampleTest.failingTest(SampleTest.java:43)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 ... Removed 32 stack frames
 </div> <!-- stack-trace -->
@@ -160,9 +165,16 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="openGoogle">
-                  </a> <!-- openGoogle -->
-                  <span class="method-name">openGoogle</span>
+                  <a name="loginToOrangeHRM">
+                  </a> <!-- loginToOrangeHRM -->
+                  <span class="method-name">loginToOrangeHRM</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="openExampleDotCom">
+                  </a> <!-- openExampleDotCom -->
+                  <span class="method-name">openExampleDotCom</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -222,20 +234,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'failingTest')
+data.setCell(0, 1, 'loginToOrangeHRM')
 data.setCell(0, 2, 'tests.SampleTest')
-data.setCell(0, 3, 2549);
+data.setCell(0, 3, 10772);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'openGoogle')
+data.setCell(1, 1, 'failingTest')
 data.setCell(1, 2, 'tests.SampleTest')
-data.setCell(1, 3, 811);
+data.setCell(1, 3, 5368);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'openExampleDotCom')
+data.setCell(2, 2, 'tests.SampleTest')
+data.setCell(2, 3, 910);
 window.suiteTableData['QA_Suite']= { tableData: data, tableDiv: 'times-div-QA_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 3 seconds</span>
+              <span class="suite-total-time">Total running time: 17 seconds</span>
               <div id="times-div-QA_Suite">
               </div> <!-- times-div-QA_Suite -->
             </div> <!-- times-div -->
@@ -263,22 +279,26 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">tests.SampleTest</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUp(org.testng.TestRunner@c4c0b41)</span>
+                <span class="method-name">setUp(org.testng.TestRunner@49601f82)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">failingTest</span>
-                <span class="method-start">1300 ms</span>
+                <span class="method-start">1157 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">openGoogle</span>
-                <span class="method-start">3966 ms</span>
+                <span class="method-name">loginToOrangeHRM</span>
+                <span class="method-start">6642 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">openExampleDotCom</span>
+                <span class="method-start">17414 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">4778 ms</span>
+                <span class="method-start">18324 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

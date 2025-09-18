@@ -38,6 +38,9 @@ public class BaseTest {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless=new");  // run without GUI
+                options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
                 driver = new ChromeDriver(options);
                 break;
 

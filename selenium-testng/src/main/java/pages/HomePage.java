@@ -2,26 +2,23 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage {
-    private WebDriver driver;
+    private WebDriverWait wait;
 
     // Locator for dashboard header
     private By dashboardHeader = By.cssSelector("h6.oxd-text--h6");
 
     // Constructor
-    public HomePage(WebDriver driver) {
-        this.driver = driver;
+    public HomePage(WebDriver driver ,WebDriverWait wait) {
+        this.wait = wait;
     }
 
     // Method to verify user is on Dashboard
     public String getDashboardHeader() {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-        return driver.findElement(dashboardHeader).getText();
+          return wait.until(ExpectedConditions.visibilityOfElementLocated(dashboardHeader)).getText();
     }
 }
 

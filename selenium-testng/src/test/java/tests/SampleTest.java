@@ -18,16 +18,9 @@ public class SampleTest extends BaseTest {
     
     @Test
     public void loginToOrangeHRM() {
-        driver.get("https://opensource-demo.orangehrmlive.com/");
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            throw new RuntimeException(e);
-        }
-
+        driver.get(baseUrl);
         // Page Object usage
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage(driver, wait);
         HomePage homePage = loginPage.loginAs("Admin", "admin123");
 
         // Validate dashboard

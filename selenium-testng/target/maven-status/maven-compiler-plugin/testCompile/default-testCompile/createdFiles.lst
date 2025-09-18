@@ -1,6 +1,4 @@
-base/ScreenshotUtils.class
 tests/SampleTest.class
-pages/LoginPage.class
+listeners/ExtentReportListener.class
+tests/LoginTest.class
 base/BaseTest.class
-pages/HomePage.class
-tests/ExtentReportListener.class

@@ -8,22 +8,21 @@ import java.time.Duration;
 
 public class LoginPage {
     private WebDriver driver;
-
+    private WebDriverWait wait;
     // Locators
     private By usernameField = By.name("username");
     private By passwordField = By.name("password");
     private By loginButton   = By.cssSelector("button[type='submit']");
 
     // Constructor
-    public LoginPage(WebDriver driver) {
+    public LoginPage(WebDriver driver , WebDriverWait wait)   {
         this.driver = driver;
+        this.wait = wait;
     }
 
     // Actions
     public void enterUsername(String username) {
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-        .until(ExpectedConditions.visibilityOfElementLocated(usernameField));
-        driver.findElement(usernameField).sendKeys(username);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(usernameField)).sendKeys(username);
     }
 
     public void enterPassword(String password) {
@@ -43,7 +42,7 @@ public class LoginPage {
         enterUsername(username);
         enterPassword(password);
         clickLogin();
-        return new HomePage(driver);
+        return new HomePage(driver, wait);
     }
 }
 

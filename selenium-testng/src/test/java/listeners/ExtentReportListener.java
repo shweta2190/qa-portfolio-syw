@@ -1,4 +1,4 @@
-package tests;
+package listeners;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -15,8 +15,7 @@ import base.BaseTest;
 import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+
 
 public class ExtentReportListener implements ITestListener {
     private static ExtentReports extent;

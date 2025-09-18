@@ -35,6 +35,7 @@ public class BaseTest {
 
         // Setup driver based on browser
         switch (browser.toLowerCase()) {
+            //chrome options for headless mode
             case "chrome":
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
